@@ -1,52 +1,66 @@
-# Prerequisites
-*.d
+# http://www.gnu.org/software/automake
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
+Makefile
+Makefile.in
 *.lo
+*.la
+*.o
+*.libs
+*.deps
+*.dirstamp
+.DS_Store
+*.log
+*.dSYM
+*.trs
+static-components.h
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# http://www.gnu.org/software/autoconf
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+autom4te.cache
+aclocal.m4
+compile
+configure
+configure.log.*
+make.log.*
+make.install.log.*
+depcomp
+install-sh
+missing
+stamp-h?
+config/install-sh
+config/libtool.m4
+config/ltmain.sh
+config/ltmain.sh.orig
+config/ylwrap
+config.log
+config.lt
+config.status
+config/Makefile
+libtool
+config.h
+config.h~
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+auto.out
+config.out
+dist.out
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+config/ar-lib
+config/compile
+config/config.guess
+config/config.sub
+config/depcomp
+config/missing
+config/test-driver
+config/ltoptions.m4
+config/ltsugar.m4
+config/ltversion.m4
+config/lt~obsolete.m4
+
+src/*.1
+src/*.2
+src/*.3
+src/*.4
+src/*.5
+src/*.6
+src/*.7
+src/*.8
