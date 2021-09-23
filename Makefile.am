@@ -20,11 +20,15 @@ docfiles = \
     src/prted.1         \
     src/prterun.1       \
     src/prun.1          \
-    src/pterm.1
+    src/pterm.1         \
+    src/prte_filem.7
 
 man_MANS = $(docfiles)
 
 %.1: %.1.md
+	$(PRTE_V_GEN) $(MD2NROFF) --source=$< --dest=$@ --pandoc=$(PANDOC)
+
+%.7: %.7.md
 	$(PRTE_V_GEN) $(MD2NROFF) --source=$< --dest=$@ --pandoc=$(PANDOC)
 
 # A little verbosity magic; "make" will show the terse output.  "make
