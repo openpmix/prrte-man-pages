@@ -44,7 +44,7 @@ in one of two ways in the absence of any further directives:
 
 :   when the number of total processes in the job is <= 2
 
-`Map by package:`
+`Map by NUMA:`
 
 :   when the number of total processes in the job is > 2
 
@@ -55,7 +55,7 @@ absence of any further directives:
 
 :   when the number of total processes in the job is <= 2
 
-`Bind to package:`
+`Bind to NUMA:`
 
 :   when the number of total processes in the job is > 2
 
@@ -75,7 +75,7 @@ used in the absence of any further directives:
 
 :   when the number of total processes in the job is <= 2
 
-`Rank by package:`
+`Rank by NUMA:`
 
 :   when the number of total processes in the job is > 2
 
@@ -133,7 +133,7 @@ To map processes across sets of objects:
 
 :   Map to the specified object. See defaults in Quick Summary. Supported
     options include `slot`, `hwthread`, `core`, `l1cache`, `l2cache`, `l3cache`,
-    `package`, `node`, `seq`, `dist`, `ppr`, and `rankfile`.
+    `numa`, `package`, `node`, `seq`, `dist`, `ppr`, and `rankfile`.
 
 Any object can include qualifier by adding a colon (`:`) and any combination
 of one or more of the following to the `--map-by` option:
@@ -161,7 +161,7 @@ To order processes' ranks:
 :   Rank in round-robin fashion according to the specified object. See defaults
     in Quick Summary.
     Supported options include `slot`, `hwthread`, `core`, `l1cache`, `l2cache`,
-    `l3cache`, `package`, and `node`.
+    `l3cache`, `numa`, `package`, and `node`.
 
 Any object can include qualifiers by adding a colon (`:`) and any combination
 of one or more of the following to the `--rank-by` option:
@@ -175,7 +175,7 @@ To bind processes to sets of objects:
 
 :   Bind processes to the specified object. See defaults in Quick Summary.
     Supported options include `none`, `hwthread`, `core`, `l1cache`,
-    `l2cache`, `l3cache`, and `package`.
+    `l2cache`, `l3cache`, `numa`, and `package`.
 
 Any object can include qualifiers by adding a colon (`:`) and any combination
 of one or more of the following to the `--bind-to` option:
@@ -518,13 +518,13 @@ alternatively in a system or user `mca-params.conf` file or as environment
 variables, as described in the MCA section below. Some examples include:
 
 ```
-prun option          MCA parameter key           value
---map-by core        rmaps_base_mapping_policy   core
---map-by package     rmaps_base_mapping_policy   package
---rank-by core       rmaps_base_ranking_policy   core
---bind-to core       hwloc_base_binding_policy   core
---bind-to package    hwloc_base_binding_policy   package
---bind-to none       hwloc_base_binding_policy   none
+prun option              MCA parameter key          value
+--map-by core        rmaps_default_mapping_policy   core
+--map-by package     rmaps_default_mapping_policy   package
+--rank-by core       rmaps_default_ranking_policy   core
+--bind-to core       hwloc_default_binding_policy   core
+--bind-to package    hwloc_default_binding_policy   package
+--bind-to none       hwloc_default_binding_policy   none
 ```
 
 ## Difference between overloading and oversubscription
